@@ -1,0 +1,14 @@
+C:\Users\snake\RiderProjects\Lagger\Lagger\bin\Debug\net8.0\Lagger.exe
+C:\Users\snake\RiderProjects\Lagger\Lagger\bin\Debug\net8.0\Lagger.deps.json
+C:\Users\snake\RiderProjects\Lagger\Lagger\bin\Debug\net8.0\Lagger.runtimeconfig.json
+C:\Users\snake\RiderProjects\Lagger\Lagger\bin\Debug\net8.0\Lagger.dll
+C:\Users\snake\RiderProjects\Lagger\Lagger\bin\Debug\net8.0\Lagger.pdb
+C:\Users\snake\RiderProjects\Lagger\Lagger\obj\Debug\net8.0\Lagger.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\snake\RiderProjects\Lagger\Lagger\obj\Debug\net8.0\Lagger.AssemblyInfoInputs.cache
+C:\Users\snake\RiderProjects\Lagger\Lagger\obj\Debug\net8.0\Lagger.AssemblyInfo.cs
+C:\Users\snake\RiderProjects\Lagger\Lagger\obj\Debug\net8.0\Lagger.csproj.CoreCompileInputs.cache
+C:\Users\snake\RiderProjects\Lagger\Lagger\obj\Debug\net8.0\Lagger.dll
+C:\Users\snake\RiderProjects\Lagger\Lagger\obj\Debug\net8.0\refint\Lagger.dll
+C:\Users\snake\RiderProjects\Lagger\Lagger\obj\Debug\net8.0\Lagger.pdb
+C:\Users\snake\RiderProjects\Lagger\Lagger\obj\Debug\net8.0\Lagger.genruntimeconfig.cache
+C:\Users\snake\RiderProjects\Lagger\Lagger\obj\Debug\net8.0\ref\Lagger.dll
