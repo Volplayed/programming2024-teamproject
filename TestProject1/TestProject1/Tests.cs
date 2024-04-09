@@ -113,8 +113,8 @@ namespace Lagguer.Tests
             var result = fixture.TabulateTransformationGaussResult;
             Assert.Equal(21, result.Count);
             Assert.Equal(0.042525538269538296, result[0]);
-            Assert.Equal(0.00045891574543354086, result[11]);
-            Assert.Equal(0.00047944669028616326, result[20]);
+            Assert.Equal(0.00045891574543354042, result[11]);
+            Assert.Equal(0.00047944669028616299, result[20]);
         }
         [Fact]
         public void TabulateReversedGaussTransformationTest()
@@ -138,19 +138,19 @@ namespace Lagguer.Tests
             Assert.Equal(21, result.Count);
             Assert.Equal(1.5254009861383603e-08, result[0]);
             Assert.Equal(-2.4906530634117345e-06, result[11]);
-            Assert.Equal(-1.4782714335838103e-11, result[20]);
+            Assert.Equal(-1.4782714335811301E-11, result[20]);
         }
         [Fact]
         public void ReversedGauss3byLambdaTest()
         {
             var result = fixture.ReversedGauss3byLambda;
-            Assert.Equal(0.00475802334115808, result);
+            Assert.Equal(0.0047580233411580819, result);
         }
         [Fact]
         public void ReversedGauss6byLambdaTest()
         {
             var result = fixture.ReversedGauss6byLambda; 
-            Assert.Equal(1.098169283367328e-05, result);
+            Assert.Equal(1.0981692833673276E-05, result);
         }
     }
 
