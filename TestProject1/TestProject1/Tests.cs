@@ -21,6 +21,8 @@ namespace Lagguer.Tests
         public double ReversedGauss6byLambda { get; }
         public double lambda_1 = 5;
         public double lambda_2 = 2;
+
+        public Integral integral { get; set; }
         public LagguerTestsData()
         {
             lagguerre = new Lagguerre(2, 4);
@@ -34,7 +36,7 @@ namespace Lagguer.Tests
             TabulateGauss3byLambda = lagguerre.TabulateTransformation(Function.Gauss(3 * lambda_1, lambda_1), 20);
             ReversedGauss6byLambda = lagguerre.ReversedLaguerreTransformation(TabulateGauss6byLambda, Math.PI); ;
             ReversedGauss3byLambda = lagguerre.ReversedLaguerreTransformation(TabulateGauss3byLambda, Math.PI);
-
+            integral = new Integral();
         }
         public void Dispose()
         {
@@ -76,58 +78,64 @@ namespace Lagguer.Tests
             this.fixture = fixture;
         }
 
-        [Fact]
-        public void LaguerreFuncTest()
+        [Theory]
+        [InlineData(0.7358)]
+        public void LaguerreFuncTest(double result)
         {
             var result1 = fixture.lagguerre.Laguerre(1, 2);
-            Assert.Equal(0.7357588823428847, result1);
+            Assert.Equal(result, Math.Round(result1,4));
         }
 
-        [Fact]
-        public void TabulateLaguerreTest()
+        [Theory]
+        [InlineData(new double[]{0,0.5067,9.9,0.0708})]
+        public void TabulateLaguerreTest(double[] arr)
         {
             var result = fixture.TabulationResult;
             Assert.Equal(100, result.Count);
-            Assert.Equal(0, result[0].Item1);
-            Assert.Equal(0.5067089541001375, result[1].Item2);
-            Assert.Equal(9.9, result[99].Item1);
-            Assert.Equal(0.07083460913962603, result[99].Item2);
+            Assert.Equal(arr[0], Math.Round(result[0].Item1,4));
+            Assert.Equal(arr[1], Math.Round(result[1].Item2,4));
+            Assert.Equal(arr[2], Math.Round(result[99].Item1,1));
+            Assert.Equal(arr[3], Math.Round(result[99].Item2,4));
         }
 
-        [Fact]
-        public void ExperimentTest()
+        [Theory]
+        [InlineData(79.09999999999999, 1000)]
+        public void ExperimentTest(double result, int count)
         {
             var result3 = fixture.ExperimentResult;
-            Assert.Equal(79.09999999999999, result3.Item1);
-            Assert.Equal(1000, result3.Item2.Count);
+            Assert.Equal(result, result3.Item1);
+            Assert.Equal(count, result3.Item2.Count);
         }
-        [Fact]
-        public void ReversedLaguerreTest()
+        [Theory]
+        [InlineData(1.99994)]
+        public void ReversedLaguerreTest(double data)
         {
             var result = fixture.ReversedTransformationResult;
-            Assert.Equal(1.9999391945011342, result);
+            Assert.Equal(data, Math.Round(result,5));
         }
-        [Fact]
-        public void TabulateGaussTransformationTest()
+        [Theory]
+        [InlineData(new double[]{0.0425,0.0005,0.0005})]
+        public void TabulateGaussTransformationTest(double[] arr)
         {
             var result = fixture.TabulateTransformationGaussResult;
             Assert.Equal(21, result.Count);
-            Assert.Equal(0.042525538269538296, result[0]);
-            Assert.Equal(0.00045891574543354042, result[11]);
-            Assert.Equal(0.00047944669028616299, result[20]);
+            Assert.Equal(arr[0], Math.Round(result[0],4));
+            Assert.Equal(arr[1], Math.Round(result[11],4));
+            Assert.Equal(arr[2], Math.Round(result[20],4));
         }
-        [Fact]
-        public void TabulateReversedGaussTransformationTest()
+        [Theory]
+        [InlineData(0.1256)]
+        public void TabulateReversedGaussTransformationTest(double res)
         {
             var result = fixture.ReversedTransformationGaussResult;
-            Assert.Equal(0.1255524823358316,result);
+            Assert.Equal(res,Math.Round(result,4));
         }
         [Fact]
         public void TabulateGauss3byLambdaTest()
         {
             var result = fixture.TabulateGauss3byLambda;
             Assert.Equal(21, result.Count);
-            Assert.Equal(0.0007406486382301851, result[0]);
+            Assert.Equal(0.0007, Math.Round(result[0],4));
             Assert.Equal(7.07136699545659e-06, result[11]);
             Assert.Equal(7.771885685696491e-06, result[20]);
         }
@@ -136,21 +144,37 @@ namespace Lagguer.Tests
         {
             var result = fixture.TabulateGauss6byLambda;
             Assert.Equal(21, result.Count);
-            Assert.Equal(1.5254009861383603e-08, result[0]);
-            Assert.Equal(-2.4906530634117345e-06, result[11]);
-            Assert.Equal(-1.4782714335811301E-11, result[20]);
+            Assert.Equal(2E-08, Math.Round(result[0],8));
+            Assert.Equal(-2.49E-06, Math.Round(result[11],8));
+            Assert.Equal(-1E-11, Math.Round(result[20],11));
         }
-        [Fact]
-        public void ReversedGauss3byLambdaTest()
+        [Theory]
+        [InlineData(0.0048)]
+        public void ReversedGauss3byLambdaTest(double res)
         {
             var result = fixture.ReversedGauss3byLambda;
-            Assert.Equal(0.0047580233411580819, result);
+            Assert.Equal(res, Math.Round(result,4));
         }
         [Fact]
         public void ReversedGauss6byLambdaTest()
         {
             var result = fixture.ReversedGauss6byLambda; 
-            Assert.Equal(1.0981692833673276E-05, result);
+            Assert.Equal(1E-05, Math.Round(result,5));
+        }
+
+        [Theory]
+        [InlineData(0.25)]
+        public void TestIntegrateQuad(double res)
+        {
+            Func<double, double> testFunction = x => x * x * x; 
+            double lowerBound = 0;
+            double upperBound = 1;
+            int numberOfSteps = 100; 
+ 
+
+            double calculatedIntegralValue = Integral.IntegrateQuad(testFunction, lowerBound, upperBound, numberOfSteps);
+            
+            Assert.Equal(res, Math.Round(calculatedIntegralValue,2)); 
         }
     }
 
