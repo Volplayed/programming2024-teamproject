@@ -5513,11 +5513,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/danyloyakymets/Projects/programming2024-teamproject/TestProject1/TestProject1/TestLagguere.csproj",
+      "projectUniqueName": "/Users/danyloyakymets/Projects/dotnet/programming2024-teamproject/TestProject1/TestProject1/TestLagguere.csproj",
       "projectName": "TestLagguere",
-      "projectPath": "/Users/danyloyakymets/Projects/programming2024-teamproject/TestProject1/TestProject1/TestLagguere.csproj",
+      "projectPath": "/Users/danyloyakymets/Projects/dotnet/programming2024-teamproject/TestProject1/TestProject1/TestLagguere.csproj",
       "packagesPath": "/Users/danyloyakymets/.nuget/packages/",
-      "outputPath": "/Users/danyloyakymets/Projects/programming2024-teamproject/TestProject1/TestProject1/obj/",
+      "outputPath": "/Users/danyloyakymets/Projects/dotnet/programming2024-teamproject/TestProject1/TestProject1/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/danyloyakymets/.nuget/NuGet/NuGet.Config"

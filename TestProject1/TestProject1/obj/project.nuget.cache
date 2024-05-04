@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TQUr4DdQNt7bPqCbV0eT+ITLFRp5Xl2rqjwT47ivGaf6LuHOG5cMtMerwO1ifvyAoBV7Aj4yZEvQvYAn/uC5lA==",
+  "dgSpecHash": "EaUGhHCcDeFavOvTxEDaL6n/vsr/zlQhBcAg0Ovzk0q1S03gZew8L44C8wuRE8BtHYOM8Q28L4NRNanbuJrQPg==",
   "success": true,
-  "projectFilePath": "/Users/danyloyakymets/Projects/programming2024-teamproject/TestProject1/TestProject1/TestLagguere.csproj",
+  "projectFilePath": "/Users/danyloyakymets/Projects/dotnet/programming2024-teamproject/TestProject1/TestProject1/TestLagguere.csproj",
   "expectedPackageFiles": [
     "/Users/danyloyakymets/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",
     "/Users/danyloyakymets/.nuget/packages/microsoft.codecoverage/17.8.0/microsoft.codecoverage.17.8.0.nupkg.sha512",

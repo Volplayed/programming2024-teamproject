@@ -26,11 +26,7 @@ namespace Lagguer
         public double Beta { get; set; }
         public double Sigma { get; set; }
         private double? _experimentValue;
-
-
-
-
-
+        
         public Lagguerre(double beta, double sigma)
         {
             Beta = beta;
