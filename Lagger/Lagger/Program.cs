@@ -244,8 +244,63 @@ namespace Lagguer
                 Console.WriteLine("Reverse transform experiment mu = 6*lambda");
                 var rev_transform_exp_6 = lag.ReversedLaguerreTransformation(Gaus_transform_tabulate_exp_6, Math.PI);
                 Console.WriteLine($"Reverse transform: {rev_transform_exp_6}");
+                
+                
+                
+                WriteDictToFile(tabulate_Lagguer, @"Path to csv file");
+                var allValues = new Dictionary<string, double>()
+                {
+                    {"experiment", Convert.ToDouble(experiment.Item1)  },
+                    {"rev_transform",rev_transform},
+                    {"rev_transform_any", rev_transform_any},
+                    {"rev_transform_exp_3",rev_transform_exp_3},
+                    {"rev_transform_exp_6",rev_transform_exp_6}
+                };
+                writeValuesToFile(allValues, @"Path to csv file");
+            }
+    
+            
+            // Use this for all List writing
+            static void writeDateToFile<T>(List<T> incomeData, string path)
+            {
+                using(StreamWriter writetext = new StreamWriter(path))
+                {
+                    foreach (T data in incomeData)
+                    {
+                        writetext.WriteLine(data);
+                    }
+                }
+            }
+            
+            // use this for "tabulate_Laguerre" 
+            
+            static void WriteDictToFile<T1, T2>(List<Tuple<T1, T2>> list, string path)
+            {
+                using (StreamWriter writetext = new StreamWriter(path))
+                {
+                    foreach (var data in list)
+                    {
+                        writetext.WriteLine($"{data.Item1}. {data.Item2}");
+                    }
+                }
+            }
+
+            
+            // use this for writing dictionary of single values
+            
+            
+            static void writeValuesToFile(Dictionary<string,double> values, string path)
+            {
+                using (StreamWriter writetext = new StreamWriter(path))
+                {
+                    foreach(KeyValuePair<string, double> entry in values)
+                    {
+                        writetext.WriteLine($"{entry.Key} {entry.Value}");
+                    }
+                }
             }
         }
+        
     }
 }
 
