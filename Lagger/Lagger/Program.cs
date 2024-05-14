@@ -148,6 +148,20 @@ namespace Lagguer
 
             return resultSum;
         }
+        public List<double> ReversedLaguerreTransformationTabulate(List<double> hList, double t1, double t2)
+        {
+            List<double> result= new List<double>() {};
+            int size = 1000;
+            double step = (t2 - t1) / size;
+            for (int i = 0; i < size+1; i++)
+            {
+                double t = t1 + i * step;
+                
+                result.Add(ReversedLaguerreTransformation(hList, t));
+            }
+
+            return result;
+        }
     }
 
     public class Function
@@ -198,6 +212,13 @@ namespace Lagguer
                 }
                 var rev_transform = lag.ReversedLaguerreTransformation(tabulate_transform, Math.PI);
                 Console.WriteLine($"Rer transform: {rev_transform}");
+
+                var rev_transform_tab = lag.ReversedLaguerreTransformationTabulate(tabulate_transform, 0, Math.PI);
+                foreach (var rev_transform_tabulate in rev_transform_tab)
+                {
+                    Console.WriteLine($"Reverse transform tabulate: {rev_transform_tabulate}");
+                }
+                
                 
                 //Transform
                 Console.WriteLine("\n");
@@ -244,10 +265,19 @@ namespace Lagguer
                 Console.WriteLine("Reverse transform experiment mu = 6*lambda");
                 var rev_transform_exp_6 = lag.ReversedLaguerreTransformation(Gaus_transform_tabulate_exp_6, Math.PI);
                 Console.WriteLine($"Reverse transform: {rev_transform_exp_6}");
+
+                var rev_transform_exp_1_tab = lag.ReversedLaguerreTransformationTabulate(Gaus_transform_tabulate, 0, Math.PI);
+                var rev_transform_exp_3_tab = lag.ReversedLaguerreTransformationTabulate(Gaus_transform_tabulate_exp_3, 0, Math.PI);
+                var rev_transform_exp_6_tab = lag.ReversedLaguerreTransformationTabulate(Gaus_transform_tabulate_exp_6, 0, Math.PI);
                 
                 
                 
-                WriteDictToFile(tabulate_Lagguer, @"Path to csv file");
+                WriteDictToFile(tabulate_Lagguer, @"D:\Homework\programming2024-teamproject\Lagger\Lagger\tabulatedLaguerre.csv");
+                writeDateToFile(tabulate_transform, @"D:\Homework\programming2024-teamproject\Lagger\Lagger\tabulateTransform.csv");
+                writeDateToFile(rev_transform_tab, @"D:\Homework\programming2024-teamproject\Lagger\Lagger\tabulateReverseTransform.csv");
+                writeDateToFile(rev_transform_exp_1_tab, @"D:\Homework\programming2024-teamproject\Lagger\Lagger\tabulateReverseGauss1.csv");
+                writeDateToFile(rev_transform_exp_3_tab, @"D:\Homework\programming2024-teamproject\Lagger\Lagger\tabulateReverseGauss3.csv");
+                writeDateToFile(rev_transform_exp_6_tab, @"D:\Homework\programming2024-teamproject\Lagger\Lagger\tabulateReverseGauss6.csv");
                 var allValues = new Dictionary<string, double>()
                 {
                     {"experiment", Convert.ToDouble(experiment.Item1)  },
@@ -256,7 +286,7 @@ namespace Lagguer
                     {"rev_transform_exp_3",rev_transform_exp_3},
                     {"rev_transform_exp_6",rev_transform_exp_6}
                 };
-                writeValuesToFile(allValues, @"Path to csv file");
+                writeValuesToFile(allValues, @"D:\Homework\programming2024-teamproject\Lagger\Lagger\singleValues.csv");
             }
     
             

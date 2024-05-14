@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lagger")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c43a6de0abccac9486ebb79d1b7608c3264b274")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af4cafb5538b8c235aceb371c633faeb6815c49f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lagger")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lagger")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
