@@ -178,6 +178,15 @@ namespace Lagguer
             }
         }
 
+        public static double CustomFunc(double t) {
+            if (t <= Math.PI / 3) {
+                return Math.Tan(t);
+            }
+            else {
+                return Math.Tan(Math.PI/3);
+            }
+        }
+
         public static Func<double, double> Gauss(double mu, double lambda)
         {
             if (lambda <= 0)
@@ -205,15 +214,15 @@ namespace Lagguer
                 }
                 var experiment = lag.Experiment(100);
                 Console.WriteLine($"Experiment result: {experiment.Item1}");
-                var tabulate_transform = lag.TabulateTransformation(Function.F, 20);
+                var tabulate_transform = lag.TabulateTransformation(Function.CustomFunc, 20);
                 foreach (var tab_transform in tabulate_transform)
                 {
                     Console.WriteLine($"Value: {tab_transform}");
                 }
-                var rev_transform = lag.ReversedLaguerreTransformation(tabulate_transform, Math.PI);
+                var rev_transform = lag.ReversedLaguerreTransformation(tabulate_transform, Math.PI/3);
                 Console.WriteLine($"Rer transform: {rev_transform}");
 
-                var rev_transform_tab = lag.ReversedLaguerreTransformationTabulate(tabulate_transform, 0, Math.PI);
+                var rev_transform_tab = lag.ReversedLaguerreTransformationTabulate(tabulate_transform, 0, Math.PI/3);
                 foreach (var rev_transform_tabulate in rev_transform_tab)
                 {
                     Console.WriteLine($"Reverse transform tabulate: {rev_transform_tabulate}");
